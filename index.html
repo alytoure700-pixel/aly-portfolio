@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO de base (complété à l'étape SEO) ===== -->
+  <title>Aly Touré — Développeur Web Junior | Portfolio</title>
+  <meta name="description" content="Aly Touré, développeur web junior à Dakar. Applications web et PWA pour de vrais commerçants avec JavaScript, Next.js et Firebase. Ouvert aux stages et missions freelance.">
+  <meta name="author" content="Aly Touré">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1113" media="(prefers-color-scheme: dark)">
+
+  <!-- ===== Polices (Google Fonts) =====
+       preconnect = le navigateur ouvre la connexion en avance → chargement plus rapide
+       display=swap = le texte s'affiche tout de suite avec une police système,
+       puis bascule sur la bonne police dès qu'elle est prête -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <!-- ===== Styles (l'ordre compte : variables d'abord) ===== -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+
+<body>
+  <!-- Permet aux utilisateurs clavier de sauter directement au contenu -->
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- =====================================================
+       NAVBAR
+       ===================================================== -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navigation principale">
+      <a class="nav__logo" href="#accueil" aria-label="Aly Touré — retour en haut de page">
+        <span class="nav__monogram" aria-hidden="true">AT</span>
+        <span>Aly Touré</span>
+      </a>
+
+      <!-- Bouton burger (visible uniquement sur mobile) -->
+      <button class="nav__toggle" type="button"
+              aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__links">
+          <li><a class="nav__link" href="#accueil">Accueil</a></li>
+          <li><a class="nav__link" href="#projets">Projets</a></li>
+          <li><a class="nav__link" href="#a-propos">À propos</a></li>
+          <li><a class="nav__link" href="#competences">Compétences</a></li>
+          <li><a class="nav__link" href="#parcours">Parcours</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small nav__cta" href="#contact">Me contacter</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenu">
+
+    <!-- =====================================================
+         SECTIONS TEMPORAIRES — remplacées aux étapes suivantes
+         ===================================================== -->
+
+    <!-- =====================================================
+         HERO
+         Les textes sont ici (bon pour le référencement).
+         Le statut et le bouton CV viennent de js/data.js.
+         ===================================================== -->
+    <section id="accueil" class="hero" aria-labelledby="hero-title">
+      <div class="hero__grid container">
+
+        <!-- Colonne gauche : identité -->
+        <div class="hero__content">
+          <!-- Statut : texte et affichage réglés dans data.js (profile.status) -->
+          <p class="status" data-status hidden>
+            <span class="status__dot" aria-hidden="true"></span>
+            <span data-status-text></span>
+          </p>
+
+          <h1 id="hero-title" class="hero__title">
+            Aly Touré
+            <span class="hero__role">Développeur Web Junior</span>
+          </h1>
+
+          <p class="hero__tagline">
+            Je conçois des applications web utiles pour de vrais utilisateurs,
+            et je construis pas à pas mon parcours vers l'ingénierie logicielle et l'IA.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#projets">
+              Voir mes projets
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--secondary" href="#contact">Me contacter</a>
+            <!-- Affiché uniquement si profile.cv est rempli dans data.js -->
+            <a class="btn btn--ghost" data-cv href="#" download hidden>Télécharger mon CV</a>
+          </div>
+        </div>
+
+        <!-- Colonne droite : fiche profil (l'élément signature du site) -->
+        <aside class="spec" aria-label="Fiche profil">
+          <div class="spec__header">
+            <span>Fiche profil</span>
+            <span>2026</span>
+          </div>
+          <dl class="spec__list">
+            <div class="spec__row" style="--i: 0">
+              <dt>Rôle</dt>
+              <dd>Développeur Web Junior</dd>
+            </div>
+            <div class="spec__row" style="--i: 1">
+              <dt>Formation</dt>
+              <dd>Licence MPI — UCAD, 2ᵉ année</dd>
+            </div>
+            <div class="spec__row" style="--i: 2">
+              <dt>Stack</dt>
+              <dd>
+                <ul class="spec__tags">
+                  <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Next.js</li><li>Firebase</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="spec__row" style="--i: 3">
+              <dt>Focus</dt>
+              <dd class="spec__path">
+                <span>Web</span>
+                <span aria-hidden="true">→</span>
+                <span>Ingénierie logicielle</span>
+                <span aria-hidden="true">→</span>
+                <span>IA</span>
+              </dd>
+            </div>
+            <div class="spec__row" style="--i: 4">
+              <dt>Basé à</dt>
+              <dd>Dakar, Sénégal</dd>
+            </div>
+          </dl>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PROJETS
+         Les fiches sont générées par js/render.js à partir de
+         SITE.projects dans js/data.js.
+         ===================================================== -->
+    <section id="projets" class="section" aria-labelledby="projets-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-label"><span>01</span> — Projets</p>
+          <h2 id="projets-title" class="section-title">Des projets construits pour de vrais utilisateurs.</h2>
+          <p class="section-intro">
+            Chaque projet part d'un besoin concret de commerçant.
+            Voici le problème, la solution que j'ai construite et les technologies utilisées.
+          </p>
+        </header>
+
+        <!-- Rempli par renderProjects() dans js/render.js -->
+        <div class="projects" data-projects></div>
+
+        <noscript>
+          <p>Activez JavaScript pour afficher les projets, ou visitez directement
+            <a href="https://sama-commerce-236ea.web.app">SAMA-COMMERCE</a> et
+            <a href="https://cheikh-telecom.vercel.app">Cheikh Telecom</a>.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         À PROPOS
+         Texte modifiable directement ici.
+         ===================================================== -->
+    <section id="a-propos" class="section" aria-labelledby="apropos-title">
+      <div class="container about">
+        <header class="about__intro">
+          <p class="section-label"><span>02</span> — À propos</p>
+          <h2 id="apropos-title" class="section-title">Des maths au code, un projet après l'autre.</h2>
+        </header>
+
+        <div class="about__text">
+          <p>
+            Je suis étudiant en <strong>2ᵉ année de Licence Mathématiques – Physique – Informatique</strong>
+            à l'Université Cheikh Anta Diop de Dakar. Les maths m'ont appris à décomposer un problème
+            avant de chercher une solution, et c'est exactement ce que je fais quand je code.
+          </p>
+          <p>
+            J'ai commencé le développement web en 2024, en autodidacte : HTML, CSS et JavaScript,
+            puis Git, Firebase et les PWA. Très vite, j'ai voulu construire des outils pour
+            <strong>de vrais utilisateurs</strong> (des commerçants) plutôt que des exercices.
+          </p>
+          <p>
+            Aujourd'hui, je consolide mes bases en ingénierie logicielle, avec un objectif clair :
+            me spécialiser progressivement dans l'<strong>intelligence artificielle</strong>.
+          </p>
+        </div>
+
+        <ul class="about__traits">
+          <li class="trait">
+            <span class="trait__index">01</span>
+            <h3 class="trait__title">Rigueur scientifique</h3>
+            <p class="trait__text">Comprendre le problème avant d'écrire la première ligne.</p>
+          </li>
+          <li class="trait">
+            <span class="trait__index">02</span>
+            <h3 class="trait__title">Apprentissage autonome</h3>
+            <p class="trait__text">Documentation, essais, erreurs : j'apprends en construisant.</p>
+          </li>
+          <li class="trait">
+            <span class="trait__index">03</span>
+            <h3 class="trait__title">Orienté produit</h3>
+            <p class="trait__text">Un projet réussi, c'est un outil que quelqu'un utilise vraiment.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         COMPÉTENCES
+         Générées par renderSkills() à partir de SITE.skills
+         et SITE.aiText dans js/data.js.
+         ===================================================== -->
+    <section id="competences" class="section" aria-labelledby="competences-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-label"><span>03</span> — Compétences</p>
+          <h2 id="competences-title" class="section-title">Ce que j'utilise pour construire.</h2>
+          <p class="section-intro">
+            Uniquement des technologies utilisées dans mes projets.
+          </p>
+          <!-- Légende des deux niveaux -->
+          <ul class="skills-legend" aria-label="Légende">
+            <li><span class="skill-tag">Aa</span> Utilisé régulièrement</li>
+            <li><span class="skill-tag skill-tag--learning">Aa</span> Utilisé sur un projet, en approfondissement</li>
+          </ul>
+        </header>
+
+        <div class="skills" data-skills></div>
+
+        <!-- Bloc IA : texte dans SITE.aiText -->
+        <aside class="ai-note" aria-labelledby="ai-title">
+          <p class="ai-note__label">IA &amp; productivité</p>
+          <h3 id="ai-title" class="ai-note__title">L'IA comme assistant, pas comme remplaçant.</h3>
+          <p class="ai-note__text" data-ai-text></p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="parcours" class="section placeholder">
+      <div class="container">
+        <p class="section-label"><span>05</span> — Parcours</p>
+        <h2 class="section-title">Parcours</h2>
+        <p>Étape 6.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section placeholder">
+      <div class="container">
+        <p class="section-label"><span>06</span> — Contact</p>
+        <h2 class="section-title">Construisons quelque chose ensemble.</h2>
+        <p>Étape 7.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Scripts =====
+       "defer" = le script s'exécute une fois le HTML chargé.
+       data.js d'abord : les autres scripts utilisent ses données. -->
+  <script src="js/data.js" defer></script>
+  <script src="js/render.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
