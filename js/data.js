@@ -140,32 +140,32 @@ const SITE = {
     "J'utilise des assistants IA pour explorer des pistes, relire mon code et apprendre plus vite. Je lis, comprends et teste chaque ligne que j'intègre : l'IA accélère mon travail, elle ne le remplace pas.",
 
   /* ---------- Parcours ----------
-     Du plus récent au plus ancien. */
+     Du plus récent au plus ancien.
+     "type" s'affiche en petite étiquette : Formation, Développement web, Projets… */
   timeline: [
     {
       date: "Aujourd'hui",
-      title: "Vers l'ingénierie logicielle",
-      text: "Consolidation des bases (TypeScript, architecture, bonnes pratiques) et premiers pas vers l'intelligence artificielle.",
+      type: "Objectif",
+      title: "Vers l'ingénierie logicielle et l'IA",
+      text: "Je consolide mes bases (TypeScript, architecture, sécurité des données) et je commence à explorer l'intelligence artificielle.",
     },
     {
-      date: "[ANNÉE]",
-      title: "Projets pour de vrais utilisateurs",
-      text: "Conception et mise en ligne d'applications utilisées par des commerçants : SAMA-COMMERCE, Cheikh Telecom, Saloum-Sen Boutique.",
+      date: "2026",
+      type: "Projets",
+      title: "Des applications pour de vrais utilisateurs",
+      text: "Conception et mise en ligne de SAMA-COMMERCE, Cheikh Telecom et Saloum-Sen Boutique, conçues pour des commerçants.",
     },
     {
       date: "2024",
-      title: "Apprentissage du développement web",
-      text: "HTML, CSS et JavaScript en autodidacte, puis Git/GitHub, Firebase et les PWA.",
+      type: "Développement web",
+      title: "Apprentissage en autodidacte",
+      text: "HTML, CSS et JavaScript, puis Git et GitHub, Firebase et les PWA, en construisant des projets plutôt qu'en suivant uniquement des cours.",
     },
     {
-      date: "Depuis 2024",
+      date: "2024",
+      type: "Formation",
       title: "Licence Mathématiques – Physique – Informatique",
-      text: "Université Cheikh Anta Diop de Dakar — actuellement en 2ᵉ année.",
-    },
-    {
-      date: "2024",
-      title: "Baccalauréat",
-      text: "Obtention du baccalauréat, puis entrée à l'université.",
+      text: "Université Cheikh Anta Diop de Dakar, après l'obtention du baccalauréat. Actuellement en 2ᵉ année.",
     },
   ],
 };

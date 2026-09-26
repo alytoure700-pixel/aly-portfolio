@@ -185,8 +185,31 @@ function renderSkills(skills, aiText) {
 }
 
 
+/* ---------- Parcours ---------- */
+
+function renderTimeline(items) {
+  const list = document.querySelector("[data-timeline]");
+  if (!list) return;
+
+  list.innerHTML = items
+    .map(
+      (item) => `
+      <li class="timeline__item">
+        <p class="timeline__date">${escapeHTML(item.date)}</p>
+        <div class="timeline__content">
+          <p class="timeline__type">${escapeHTML(item.type)}</p>
+          <h3 class="timeline__title">${escapeHTML(item.title)}</h3>
+          ${item.text ? `<p class="timeline__text">${escapeHTML(item.text)}</p>` : ""}
+        </div>
+      </li>`
+    )
+    .join("");
+}
+
+
 /* ---------- Lancement ---------- */
 
 renderHero(SITE.profile);
 renderProjects(SITE.projects);
 renderSkills(SITE.skills, SITE.aiText);
+renderTimeline(SITE.timeline);

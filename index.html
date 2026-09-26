@@ -253,11 +253,72 @@
       </div>
     </section>
 
-    <section id="parcours" class="section placeholder">
+    <!-- =====================================================
+         MA FAÇON DE TRAVAILLER
+         5 étapes, texte modifiable directement ici.
+         ===================================================== -->
+    <section id="methode" class="section" aria-labelledby="methode-title">
       <div class="container">
-        <p class="section-label"><span>05</span> — Parcours</p>
-        <h2 class="section-title">Parcours</h2>
-        <p>Étape 6.</p>
+        <header class="section-header">
+          <p class="section-label"><span>04</span> — Méthode</p>
+          <h2 id="methode-title" class="section-title">Ma façon de travailler.</h2>
+          <p class="section-intro">
+            Avant d'écrire du code, je cherche à comprendre le besoin.
+            Voici les cinq étapes que je suis sur chaque projet.
+          </p>
+        </header>
+
+        <ol class="process">
+          <li class="process__step">
+            <span class="process__number">01</span>
+            <h3 class="process__title">Comprendre</h3>
+            <p class="process__text">Écouter l'utilisateur, observer comment il travaille aujourd'hui et repérer ce qui lui fait perdre du temps.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__number">02</span>
+            <h3 class="process__title">Concevoir</h3>
+            <p class="process__text">Esquisser les écrans et organiser les données avant la première ligne de code.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__number">03</span>
+            <h3 class="process__title">Développer</h3>
+            <p class="process__text">Avancer par petites étapes qui fonctionnent, chacune enregistrée avec Git.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__number">04</span>
+            <h3 class="process__title">Tester</h3>
+            <p class="process__text">Sur téléphone, en conditions réelles, puis avec l'utilisateur lui-même.</p>
+          </li>
+          <li class="process__step">
+            <span class="process__number">05</span>
+            <h3 class="process__title">Améliorer</h3>
+            <p class="process__text">Corriger et faire évoluer l'outil à partir des retours du terrain.</p>
+          </li>
+        </ol>
+
+        <!-- Un exemple concret rend la méthode crédible -->
+        <p class="process__example">
+          <span>Exemple</span>
+          Dans SAMA-COMMERCE, le bouton « Installer l'application » est né d'un retour :
+          un utilisateur ne trouvait pas l'option d'installation cachée dans le navigateur.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PARCOURS
+         Généré par renderTimeline() à partir de SITE.timeline
+         dans js/data.js.
+         ===================================================== -->
+    <section id="parcours" class="section" aria-labelledby="parcours-title">
+      <div class="container journey">
+        <header class="journey__header">
+          <p class="section-label"><span>05</span> — Parcours</p>
+          <h2 id="parcours-title" class="section-title">D'où je viens, où je vais.</h2>
+          <p class="section-intro">Un parcours court, mais déjà tourné vers des projets concrets.</p>
+        </header>
+
+        <ol class="timeline" data-timeline></ol>
       </div>
     </section>
 
