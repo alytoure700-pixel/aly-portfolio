@@ -322,15 +322,44 @@
       </div>
     </section>
 
-    <section id="contact" class="section placeholder">
+    <!-- =====================================================
+         CONTACT
+         Les liens viennent de SITE.contact dans js/data.js.
+         ===================================================== -->
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="container">
-        <p class="section-label"><span>06</span> — Contact</p>
-        <h2 class="section-title">Construisons quelque chose ensemble.</h2>
-        <p>Étape 7.</p>
+        <div class="contact__panel">
+          <p class="section-label"><span>06</span> — Contact</p>
+          <h2 id="contact-title" class="contact__title">Construisons quelque chose ensemble.</h2>
+          <p class="contact__intro">
+            Stage, mission freelance ou simple question : écrivez-moi,
+            je serai ravi d'échanger sur votre projet.
+          </p>
+
+          <!-- Bouton principal : ouvre la messagerie (lien rempli par render.js) -->
+          <a class="btn btn--primary contact__cta" data-contact-cta href="#contact">Me contacter</a>
+
+          <!-- Les 4 cartes sont générées par renderContact() -->
+          <ul class="contact__links" data-contact-links></ul>
+        </div>
       </div>
     </section>
 
   </main>
+
+  <!-- =====================================================
+       FOOTER
+       Les liens sont remplis par renderContact() dans render.js.
+       ===================================================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__name">
+        <strong>Aly Touré</strong> — Développeur Web Junior
+      </p>
+      <ul class="site-footer__links" data-footer-links></ul>
+      <p class="site-footer__copy">© <span data-year>2026</span> Aly Touré</p>
+    </div>
+  </footer>
 
   <!-- ===== Scripts =====
        "defer" = le script s'exécute une fois le HTML chargé.

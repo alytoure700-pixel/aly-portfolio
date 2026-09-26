@@ -1121,17 +1121,179 @@
 
 
 /* ---------------------------------------------------------
-   SECTIONS TEMPORAIRES (étape 2)
-   Blocs provisoires en attendant le vrai contenu.
-   Ils seront supprimés au fur et à mesure des étapes.
+   CONTACT
    --------------------------------------------------------- */
 
-.placeholder {
-  min-height: 60vh;
+.contact__panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(2.5rem, 1.5rem + 5vw, 5rem);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.placeholder p {
+/* Même trame de points que le Hero : le site commence et finit pareil */
+.contact__panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: linear-gradient(to bottom left, #000 0%, transparent 60%);
+  -webkit-mask-image: linear-gradient(to bottom left, #000 0%, transparent 60%);
+}
+
+.contact__title {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.035em;
+  max-width: 16ch;
+}
+
+.contact__intro {
   margin-top: var(--space-4);
+  max-width: 48ch;
+  font-size: var(--text-lg);
   color: var(--color-text-muted);
-  max-width: 55ch;
+}
+
+.contact__cta {
+  margin-top: var(--space-8);
+}
+
+.contact__links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.contact__links > li {
+  display: flex; /* la carte-lien remplit toute la hauteur */
+}
+
+.contact-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+a.contact-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.contact-card__icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+}
+
+.contact-card__label {
+  font-weight: 600;
+}
+
+.contact-card__value {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.contact-card__arrow {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  color: var(--color-text-muted);
+  transition: transform var(--transition), color var(--transition);
+}
+
+a.contact-card:hover .contact-card__arrow {
+  color: var(--color-accent);
+  transform: translateX(3px);
+}
+
+/* Lien pas encore renseigné dans data.js */
+.contact-card--empty {
+  opacity: 0.55;
+  border-style: dashed;
+}
+
+@media (max-width: 880px) {
+  .contact__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__panel {
+    padding: var(--space-6);
+  }
+  .contact__links {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: var(--space-8);
+  }
+  .contact__cta {
+    width: 100%;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.site-footer {
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4) var(--space-8);
+}
+
+.site-footer__name strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.site-footer__links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.site-footer__links a {
+  transition: color var(--transition);
+}
+
+.site-footer__links a:hover {
+  color: var(--color-text);
+}
+
+.site-footer__copy {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 480px) {
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

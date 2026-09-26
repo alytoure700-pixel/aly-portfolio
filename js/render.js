@@ -207,9 +207,108 @@ function renderTimeline(items) {
 }
 
 
+/* ---------- Contact + footer ---------- */
+
+// Une valeur est "remplie" si elle existe et n'est pas un placeholder (TON_…)
+function isFilled(value) {
+  return Boolean(value) && !value.startsWith("TON_");
+}
+
+// Petites icônes génériques (pas de logos de marques)
+const ICONS = {
+  email: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  whatsapp: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.7L4 20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`,
+  linkedin: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12h18" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  github: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+
+// Décrit chaque moyen de contact : libellé, lien à ouvrir, texte affiché
+function contactChannels(contact) {
+  return [
+    {
+      key: "email",
+      label: "Email",
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+      display: contact.email,
+    },
+    {
+      key: "whatsapp",
+      label: "WhatsApp",
+      value: contact.whatsapp,
+      href: `https://wa.me/${contact.whatsapp}`,
+      display: `+${contact.whatsapp}`,
+    },
+    {
+      key: "linkedin",
+      label: "LinkedIn",
+      value: contact.linkedin,
+      href: contact.linkedin,
+      display: "Voir mon profil",
+    },
+    {
+      key: "github",
+      label: "GitHub",
+      value: contact.github,
+      href: contact.github,
+      display: domainOf(contact.github) ? contact.github.replace(/^https?:\/\/(www\.)?/, "") : "",
+    },
+  ];
+}
+
+function contactCard(channel) {
+  // Pas encore renseigné : carte grisée, sans lien (jamais de faux lien)
+  if (!isFilled(channel.value)) {
+    return `
+      <li class="contact-card contact-card--empty">
+        <span class="contact-card__icon">${ICONS[channel.key]}</span>
+        <span class="contact-card__label">${channel.label}</span>
+        <span class="contact-card__value">À compléter</span>
+      </li>`;
+  }
+
+  const isExternal = channel.key !== "email";
+  return `
+    <li>
+      <a class="contact-card" href="${escapeHTML(channel.href)}"
+         ${isExternal ? 'target="_blank" rel="noopener"' : ""}>
+        <span class="contact-card__icon">${ICONS[channel.key]}</span>
+        <span class="contact-card__label">${channel.label}</span>
+        <span class="contact-card__value">${escapeHTML(channel.display)}</span>
+        <span class="contact-card__arrow" aria-hidden="true">→</span>
+        ${isExternal ? '<span class="visually-hidden">(nouvel onglet)</span>' : ""}
+      </a>
+    </li>`;
+}
+
+function renderContact(contact) {
+  const channels = contactChannels(contact);
+
+  const list = document.querySelector("[data-contact-links]");
+  if (list) list.innerHTML = channels.map(contactCard).join("");
+
+  // Bouton "Me contacter" : email en priorité, sinon WhatsApp
+  const cta = document.querySelector("[data-contact-cta]");
+  const main = channels.find((c) => c.key === "email" && isFilled(c.value))
+            || channels.find((c) => c.key === "whatsapp" && isFilled(c.value));
+  if (cta && main) cta.href = main.href;
+
+  // Footer : GitHub, LinkedIn, Email (seulement ceux qui sont remplis)
+  const footer = document.querySelector("[data-footer-links]");
+  if (footer) {
+    footer.innerHTML = ["github", "linkedin", "email"]
+      .map((key) => channels.find((c) => c.key === key))
+      .filter((c) => isFilled(c.value))
+      .map((c) => `<li><a href="${escapeHTML(c.href)}"${c.key !== "email" ? ' target="_blank" rel="noopener"' : ""}>${c.label}</a></li>`)
+      .join("");
+  }
+}
+
+
 /* ---------- Lancement ---------- */
 
 renderHero(SITE.profile);
 renderProjects(SITE.projects);
 renderSkills(SITE.skills, SITE.aiText);
 renderTimeline(SITE.timeline);
+renderContact(SITE.contact);
