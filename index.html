@@ -102,6 +102,13 @@
             <!-- Affiché uniquement si profile.cv est rempli dans data.js -->
             <a class="btn btn--ghost" data-cv href="#" download hidden>Télécharger mon CV</a>
           </div>
+
+          <!-- Raccourci vers l'offre SAMA-COMMERCE pour les commerçants -->
+          <a class="merchant-link" href="#commercants">
+            <span class="merchant-link__badge">Commerçants</span>
+            <span>Gérez votre boutique avec <strong>SAMA-COMMERCE</strong></span>
+            <span class="merchant-link__arrow" aria-hidden="true">→</span>
+          </a>
         </div>
 
         <!-- Colonne droite : fiche profil (l'élément signature du site) -->
@@ -171,6 +178,72 @@
             <a href="https://sama-commerce-236ea.web.app">SAMA-COMMERCE</a> et
             <a href="https://cheikh-telecom.vercel.app">Cheikh Telecom</a>.</p>
         </noscript>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         POUR LES COMMERÇANTS — SAMA-COMMERCE
+         Section "produit" : elle s'adresse aux commerçants, pas aux
+         recruteurs. Textes modifiables directement ici. Le bouton
+         WhatsApp est rempli par render.js (numéro dans data.js).
+         ===================================================== -->
+    <section id="commercants" class="promo" aria-labelledby="promo-title">
+      <div class="container">
+        <div class="promo__head">
+          <div>
+            <p class="promo__label">SAMA-COMMERCE · Pour les commerçants</p>
+            <h2 id="promo-title" class="promo__title">Gérez votre boutique depuis votre téléphone.</h2>
+            <p class="promo__intro">
+              SAMA-COMMERCE est l'application que j'ai conçue pour les commerçants :
+              vos produits, votre stock, vos ventes et vos clients au même endroit,
+              avec en plus une boutique en ligne pour montrer vos articles.
+            </p>
+            <div class="promo__actions">
+              <a class="btn promo__btn-main" data-sama-whatsapp href="#contact" target="_blank" rel="noopener">
+                Je veux l'utiliser pour ma boutique
+                <span class="visually-hidden">(ouvre WhatsApp)</span>
+              </a>
+              <a class="btn promo__btn-alt" href="https://sama-commerce-236ea.web.app/?demo=1" target="_blank" rel="noopener">
+                Essayer la démo <span aria-hidden="true">↗</span>
+                <span class="visually-hidden">(nouvel onglet)</span>
+              </a>
+            </div>
+            <p class="promo__note">Écrivez-moi sur WhatsApp : j'ouvre votre compte et je vous aide à démarrer.</p>
+          </div>
+
+          <figure class="promo__visual">
+            <img src="assets/images/projects/sama-commerce.webp"
+                 alt="Tableau de bord de SAMA-COMMERCE : chiffre d'affaires, bénéfice et graphiques"
+                 width="1440" height="818" loading="lazy" decoding="async">
+          </figure>
+        </div>
+
+        <ul class="promo__benefits">
+          <li class="benefit">
+            <h3 class="benefit__title">Un stock toujours à jour</h3>
+            <p class="benefit__text">Chaque vente met le stock à jour, et une alerte vous prévient avant la rupture.</p>
+          </li>
+          <li class="benefit">
+            <h3 class="benefit__title">Ventes et factures</h3>
+            <p class="benefit__text">Enregistrez une vente en quelques secondes et obtenez une facture PDF prête à envoyer.</p>
+          </li>
+          <li class="benefit">
+            <h3 class="benefit__title">Vos clients et leurs dettes</h3>
+            <p class="benefit__text">Sachez qui vous doit quoi et suivez chaque paiement reçu.</p>
+          </li>
+          <li class="benefit">
+            <h3 class="benefit__title">Votre vrai bénéfice</h3>
+            <p class="benefit__text">Chiffre d'affaires, bénéfice et meilleures ventes, en graphiques clairs.</p>
+          </li>
+          <li class="benefit">
+            <h3 class="benefit__title">Votre boutique en ligne</h3>
+            <p class="benefit__text">Une page publique pour montrer vos produits à vos clients et recevoir leurs demandes.</p>
+          </li>
+          <li class="benefit">
+            <h3 class="benefit__title">Comme une application</h3>
+            <p class="benefit__text">S'installe sur l'écran d'accueil du téléphone, sans passer par un store.</p>
+          </li>
+        </ul>
       </div>
     </section>
 

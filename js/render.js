@@ -305,6 +305,16 @@ function renderContact(contact) {
 }
 
 
+/* ---------- Bouton WhatsApp de l'offre SAMA-COMMERCE ---------- */
+
+function renderSamaOffer(contact, message) {
+  const button = document.querySelector("[data-sama-whatsapp]");
+  if (!button || !isFilled(contact.whatsapp)) return;
+  // encodeURIComponent transforme espaces et accents pour qu'ils passent dans une URL
+  button.href = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
+
 /* ---------- Lancement ---------- */
 
 renderHero(SITE.profile);
@@ -312,3 +322,4 @@ renderProjects(SITE.projects);
 renderSkills(SITE.skills, SITE.aiText);
 renderTimeline(SITE.timeline);
 renderContact(SITE.contact);
+renderSamaOffer(SITE.contact, SITE.samaWhatsappMessage);

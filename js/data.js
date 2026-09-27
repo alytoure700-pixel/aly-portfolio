@@ -31,16 +31,22 @@ const SITE = {
 
     // Chemin vers ton CV en PDF (ex : "assets/cv/CV-Aly-Toure.pdf").
     // Laisse "" tant que tu n'as pas de CV : le bouton sera masqué.
-    cv: "",
+    cv: "assets/cv/CV-Aly-Toure.pdf",
   },
 
   /* ---------- Liens de contact ---------- */
   contact: {
-    email: "TON_EMAIL",                 // ex : "aly@exemple.com"
-    whatsapp: "TON_WHATSAPP",           // numéro international sans + ni espaces, ex : "221771234567"
-    linkedin: "TON_LINKEDIN",           // URL complète du profil
-    github: "TON_GITHUB",               // URL complète du profil
+    email: "alytoure700@gmail.com",                 // ex : "aly@exemple.com"
+    whatsapp: "221783873491",           // numéro international sans + ni espaces, ex : "221771234567"
+    linkedin: "https://www.linkedin.com/in/aly-tour%C3%A9-a20b0b43a/",           // URL complète du profil
+    github: "https://github.com/alytoure700-pixel",               // URL complète du profil
   },
+
+  /* ---------- Offre SAMA-COMMERCE (section "Pour les commerçants") ----------
+     Message pré-rempli quand un commerçant clique sur
+     "Je veux l'utiliser pour ma boutique" (ouvre WhatsApp). */
+  samaWhatsappMessage:
+    "Bonjour Aly, je suis commerçant et je suis intéressé par SAMA-COMMERCE pour ma boutique.",
 
   /* ---------- Projets ----------
      Le premier projet de la liste est mis en avant (grand format).
@@ -64,7 +70,7 @@ const SITE = {
       tech: ["HTML", "CSS", "JavaScript", "Vite", "Firestore", "Firebase Auth", "Firebase Hosting", "Chart.js", "jsPDF", "PWA"],
       result: "",   // Fait réel uniquement. Laisse "" si rien de mesurable pour l'instant.
       learned: "",  // Une phrase : ce que ce projet t'a appris.
-      image: "",    // ex : "assets/images/projects/sama-commerce.webp"
+      image: "assets/images/projects/sama-commerce.webp",
       demo: "https://sama-commerce-236ea.web.app/?demo=1", // ?demo=1 = connexion automatique au compte démo
       demoNote: "Connexion automatique à un compte de démonstration (lecture seule).",
       shop: "https://sama-commerce-236ea.web.app/boutique.html?id=2l3zwOBMSBPOJ4gmWDWuLqzuKWm2", // boutique publique du compte démo
@@ -86,7 +92,7 @@ const SITE = {
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Firestore", "Firebase Auth", "Vercel", "PWA"],
       result: "",
       learned: "",
-      image: "",
+      image: "assets/images/projects/cheikh-telecom.webp",
       demo: "https://cheikh-telecom.vercel.app",
       demoNote: "",
       shop: "",
@@ -94,16 +100,44 @@ const SITE = {
     },
     {
       name: "SALOUM-SEN BOUTIQUE",
-      type: "Site e-commerce / catalogue",
-      problem: "[À compléter : quel besoin ce projet devait-il résoudre ?]",
+      type: "Boutique en ligne · Mission freelance",
+      problem:
+        "Une boutique d'électroménager de Ziguinchor voulait présenter ses produits en ligne et recevoir des commandes sans que ses clients aient à se déplacer.",
       solution:
-        "Une boutique en ligne consultable sur mobile, avec commande via WhatsApp et un espace sécurisé pour gérer le catalogue.",
-      features: [],
+        "Un site e-commerce mobile avec un catalogue par catégories, un panier et une commande finalisée sur WhatsApp, pensé pour la livraison locale.",
+      features: [
+        "Catalogue en 9 catégories (froid, cuisson, lavage, climatisation…)",
+        "Panier et commande via WhatsApp",
+        "Paiement à la livraison ou par mobile money",
+        "Pensé d'abord pour le téléphone",
+      ],
       tech: ["HTML", "CSS", "JavaScript", "Firestore", "Firebase Auth", "Vercel", "PWA"],
       result: "",
       learned: "",
-      image: "",
-      demo: "",
+      image: "assets/images/projects/saloum-sen.webp",
+      demo: "https://codecuriosity0-bit.github.io/Saloum-Sen-Boutique/",
+      demoNote: "",
+      shop: "",
+      github: "",
+    },
+    {
+      name: "ABG — ALKABIR BUSINESS GENERAL",
+      type: "Sites de marques · Projet client",
+      problem:
+        "Une entreprise de Touba vendait son miel et son café par WhatsApp et le bouche-à-oreille, sans vitrine en ligne pour présenter ses marques.",
+      solution:
+        "Un site pour la maison mère et un site par marque (Alkabir Honey, Alkabir Coffee), avec un espace d'administration pour modifier les gammes et les prix sans toucher au code.",
+      features: [
+        "Site de la maison mère et deux sites de marque",
+        "Espace d'administration sécurisé pour les gammes et les prix",
+        "Thème clair / sombre avec logo adapté",
+        "Installable sur mobile (PWA)",
+      ],
+      tech: ["HTML", "CSS", "JavaScript", "Firestore", "Firebase Auth", "PWA"],
+      result: "",
+      learned: "",
+      image: "assets/images/projects/abg.webp",
+      demo: "https://codecuriosity0-bit.github.io/Alkabir-Busness-G-n-rale/",
       demoNote: "",
       shop: "",
       github: "",
@@ -150,10 +184,16 @@ const SITE = {
       text: "Je consolide mes bases (TypeScript, architecture, sécurité des données) et je commence à explorer l'intelligence artificielle.",
     },
     {
+      date: "Août 2026",
+      type: "Freelance",
+      title: "Développeur web — Boutique Saloum Sen",
+      text: "Première mission freelance à Ziguinchor : analyse des besoins, rédaction des spécifications, développement et tests du site de la boutique.",
+    },
+    {
       date: "2026",
       type: "Projets",
       title: "Des applications pour de vrais utilisateurs",
-      text: "Conception et mise en ligne de SAMA-COMMERCE, Cheikh Telecom et Saloum-Sen Boutique, conçues pour des commerçants.",
+      text: "SAMA-COMMERCE, une application de gestion pour commerçants, Cheikh Telecom, le catalogue d'une boutique de Ziguinchor, et les sites de marques d'ABG à Touba.",
     },
     {
       date: "2024",
@@ -162,10 +202,10 @@ const SITE = {
       text: "HTML, CSS et JavaScript, puis Git et GitHub, Firebase et les PWA, en construisant des projets plutôt qu'en suivant uniquement des cours.",
     },
     {
-      date: "2024",
+      date: "Oct. 2024",
       type: "Formation",
       title: "Licence Mathématiques – Physique – Informatique",
-      text: "Université Cheikh Anta Diop de Dakar, après l'obtention du baccalauréat. Actuellement en 2ᵉ année.",
+      text: "Université Cheikh Anta Diop de Dakar, Faculté des Sciences et Techniques. Actuellement en 2ᵉ année. Membre du club TDSI (Transmission de Données et Sécurité de l'Information).",
     },
   ],
 };
