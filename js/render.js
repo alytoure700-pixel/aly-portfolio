@@ -306,10 +306,10 @@ function renderContact(contact) {
             || channels.find((c) => c.key === "whatsapp" && isFilled(c.value));
   if (cta && main) cta.href = main.href;
 
-  // Footer : GitHub, LinkedIn, Email (seulement ceux qui sont remplis)
+  // Footer : GitHub, LinkedIn, WhatsApp, Email (seulement ceux qui sont remplis)
   const footer = document.querySelector("[data-footer-links]");
   if (footer) {
-    footer.innerHTML = ["github", "linkedin", "email"]
+    footer.innerHTML = ["github", "linkedin", "whatsapp", "email"]
       .map((key) => channels.find((c) => c.key === key))
       .filter((c) => isFilled(c.value))
       .map((c) => `<li><a href="${escapeHTML(c.href)}"${c.key !== "email" ? ' target="_blank" rel="noopener"' : ""}>${c.label}</a></li>`)
