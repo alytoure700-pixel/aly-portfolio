@@ -70,7 +70,8 @@ const SITE = {
       tech: ["HTML", "CSS", "JavaScript", "Vite", "Firestore", "Firebase Auth", "Firebase Hosting", "Chart.js", "jsPDF", "PWA"],
       result: "",   // Fait réel uniquement. Laisse "" si rien de mesurable pour l'instant.
       learned: "",  // Une phrase : ce que ce projet t'a appris.
-      image: "assets/images/projects/sama-commerce.webp",
+      image: "assets/images/projects/sama-commerce-produits.webp",
+      image2: "assets/images/projects/sama-commerce.webp", // 2ᵉ capture (optionnelle), affichée devant la 1ʳᵉ
       demo: "https://sama-commerce-236ea.web.app/?demo=1", // ?demo=1 = connexion automatique au compte démo
       demoNote: "Connexion automatique à un compte de démonstration (lecture seule).",
       shop: "https://sama-commerce-236ea.web.app/boutique.html?id=2l3zwOBMSBPOJ4gmWDWuLqzuKWm2", // boutique publique du compte démo

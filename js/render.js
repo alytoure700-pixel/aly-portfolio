@@ -65,6 +65,19 @@ function renderHero(profile) {
 // Le visuel en haut de la fiche : la capture d'écran si elle existe,
 // sinon un cadre de navigateur provisoire avec l'adresse du site.
 function projectVisual(project) {
+  // Deux captures : la 1ʳᵉ en arrière-plan, la 2ᵉ posée devant, décalée
+  if (project.image && project.image2) {
+    return `
+      <div class="shots">
+        <img class="shots__back" src="${escapeHTML(project.image)}"
+             alt="Capture d'écran de ${escapeHTML(project.name)}"
+             width="1440" height="818" loading="lazy" decoding="async">
+        <img class="shots__front" src="${escapeHTML(project.image2)}"
+             alt="Autre écran de ${escapeHTML(project.name)}"
+             width="1440" height="818" loading="lazy" decoding="async">
+      </div>`;
+  }
+
   if (project.image) {
     return `
       <img src="${escapeHTML(project.image)}"

@@ -514,6 +514,44 @@
   box-shadow: var(--shadow-md);
 }
 
+/* Deux captures superposées (projet avec image2) */
+.shots {
+  position: relative;
+  width: 100%;
+  padding-bottom: 14%; /* laisse la place au débordement de la capture de devant */
+}
+
+.project__visual .shots img {
+  height: auto;
+  object-fit: initial;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 400ms ease;
+}
+
+.project__visual .shots__back {
+  width: 86%;
+}
+
+.project__visual .shots__front {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 62%;
+  box-shadow: 0 12px 32px rgba(20, 22, 26, 0.18);
+}
+
+.project:hover .project__visual .shots__front {
+  transform: translate(-4px, -4px);
+}
+
+/* Dans une petite carte (sans fond à points), on garde le même principe */
+.project:not(.project--featured) .shots {
+  margin: var(--space-6);
+  width: auto;
+}
+
 /* Visuel provisoire : cadre de navigateur */
 .browser {
   position: absolute;
@@ -699,8 +737,9 @@
   }
 
   .project--featured .project__visual {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: auto;
     min-height: 0;
+    padding: var(--space-6);
     border-right: none;
     border-bottom: 1px solid var(--color-border);
   }
