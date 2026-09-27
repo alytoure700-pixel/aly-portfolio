@@ -122,8 +122,8 @@
   margin-top: 5px;
 }
 
-/* ----- Version mobile / tablette ----- */
-@media (max-width: 880px) {
+/* ----- Version mobile / tablette (burger sous 1000px) ----- */
+@media (max-width: 1000px) {
   .nav__toggle {
     display: grid;
     align-content: center;
@@ -200,7 +200,7 @@
 }
 
 /* Sur ordinateur, le menu est simplement aligné à droite */
-@media (min-width: 881px) {
+@media (min-width: 1001px) {
   .nav__menu {
     display: flex;
     align-items: center;

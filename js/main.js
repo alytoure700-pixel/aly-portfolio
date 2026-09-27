@@ -4,6 +4,7 @@
    2. Bordure de la navbar au défilement
    3. Lien actif dans le menu selon la section visible
    4. Année automatique dans le footer
+   5. Apparition douce des blocs au défilement
    ========================================================= */
 
 
@@ -47,7 +48,7 @@ document.addEventListener("keydown", (event) => {
 });
 
 // Si on agrandit la fenêtre au-delà du format mobile, on referme le menu
-window.matchMedia("(min-width: 881px)").addEventListener("change", (e) => {
+window.matchMedia("(min-width: 1001px)").addEventListener("change", (e) => {
   if (e.matches) closeMenu();
 });
 
@@ -92,3 +93,46 @@ sections.forEach((section) => observer.observe(section));
 
 const yearEl = document.querySelector("[data-year]");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+
+/* ---------- 5. Apparition douce des blocs au défilement ----------
+   Chaque bloc démarre légèrement transparent et décalé vers le bas,
+   puis apparaît quand il entre à l'écran.
+   - Sans JavaScript, ou sur un vieux navigateur, rien n'est caché :
+     la classe "has-reveal" n'est ajoutée que si tout est supporté.
+   - Si l'utilisateur a demandé moins d'animations dans son système,
+     base.css ramène la durée à presque zéro. */
+
+const revealTargets = document.querySelectorAll(
+  ".section-header, .project, .promo__head, .benefit, .about__text, .trait, " +
+  ".skill-group, .ai-note, .process__step, .timeline__item, .contact__panel"
+);
+
+if ("IntersectionObserver" in window) {
+  document.documentElement.classList.add("has-reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add("is-visible");
+        obs.unobserve(el); // une seule fois
+
+        // Une fois l'apparition terminée, on retire les classes :
+        // le bloc retrouve ses propres effets (survol des cartes, etc.)
+        const delay = parseInt(el.style.getPropertyValue("--reveal-delay")) || 0;
+        setTimeout(() => el.classList.remove("reveal", "is-visible"), 700 + delay);
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px" }
+  );
+
+  revealTargets.forEach((el) => {
+    // Petit décalage entre voisins (cartes d'une même grille) : 0, 80, 160 ms…
+    const index = Array.from(el.parentElement.children).indexOf(el);
+    el.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 80}ms`);
+    el.classList.add("reveal");
+    revealObserver.observe(el);
+  });
+}

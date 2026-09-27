@@ -4,13 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===== SEO de base (complété à l'étape SEO) ===== -->
+  <!-- =====================================================
+       SEO — ce que voient Google et les réseaux sociaux
+       ⚠️ Après la mise en ligne (étape 9) : remplacer SITE_URL
+       par l'adresse réelle du portfolio dans les 3 lignes marquées.
+       ===================================================== -->
   <title>Aly Touré — Développeur Web Junior | Portfolio</title>
-  <meta name="description" content="Aly Touré, développeur web junior à Dakar. Applications web et PWA pour de vrais commerçants avec JavaScript, Next.js et Firebase. Ouvert aux stages et missions freelance.">
+  <meta name="description" content="Aly Touré, développeur web junior à Dakar. Applications pour commerçants : SAMA-COMMERCE, catalogues, boutiques en ligne. Ouvert aux stages et au freelance.">
   <meta name="author" content="Aly Touré">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="SITE_URL/">  <!-- ⚠️ SITE_URL -->
+
+  <!-- Aperçu lors d'un partage (WhatsApp, LinkedIn, Facebook…) = "Open Graph" -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aly Touré — Portfolio">
+  <meta property="og:title" content="Aly Touré — Développeur Web Junior">
+  <meta property="og:description" content="Des applications web pour de vrais commerçants : gestion, catalogues et boutiques en ligne. Ouvert aux stages et au freelance.">
+  <meta property="og:url" content="SITE_URL/">  <!-- ⚠️ SITE_URL -->
+  <meta property="og:image" content="SITE_URL/assets/og-image.png">  <!-- ⚠️ SITE_URL : l'image doit avoir une adresse complète -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aly Touré, Développeur Web Junior — Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icônes -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1113" media="(prefers-color-scheme: dark)">
+
+  <!-- Données structurées : aident Google à comprendre qui est la personne -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aly Touré",
+    "jobTitle": "Développeur Web Junior",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dakar", "addressCountry": "SN" },
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Université Cheikh Anta Diop de Dakar" },
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Next.js", "TypeScript", "Firebase", "PWA"],
+    "sameAs": [
+      "https://www.linkedin.com/in/aly-tour%C3%A9-a20b0b43a/",
+      "https://github.com/alytoure700-pixel"
+    ]
+  }
+  </script>
 
   <!-- ===== Polices (Google Fonts) =====
        preconnect = le navigateur ouvre la connexion en avance → chargement plus rapide
@@ -51,6 +90,7 @@
         <ul class="nav__links">
           <li><a class="nav__link" href="#accueil">Accueil</a></li>
           <li><a class="nav__link" href="#projets">Projets</a></li>
+          <li><a class="nav__link" href="#commercants">Commerçants</a></li>
           <li><a class="nav__link" href="#a-propos">À propos</a></li>
           <li><a class="nav__link" href="#competences">Compétences</a></li>
           <li><a class="nav__link" href="#parcours">Parcours</a></li>
